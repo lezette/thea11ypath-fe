@@ -8,9 +8,7 @@
 - **Web Accessibility Specialist (WAS) certification prep** 📚
 - **CPWA (Certified Professional in Web Accessibility) goals** 🔍
 
-Hosted on **Netlify** and built with **Eleventy (11ty) + Tailwind CSS**.
-
-🛠 **Based on the [Eleventy Tailwind Template](https://github.com/jeremydaly/eleventy-tailwind-template) by Jeremy Daly.**
+Hosted on **Netlify** and built with **Astro + Tailwind CSS**.
 
 ---
 
@@ -19,7 +17,7 @@ Hosted on **Netlify** and built with **Eleventy (11ty) + Tailwind CSS**.
 1️⃣ **Clone the repository**:
 
 ```sh
- git clone https://github.com/lezette/learning-a11y.git
+ git clone https://github.com/lezette/thea11ypath-fe.git
  cd learning-a11y
 ```
 
