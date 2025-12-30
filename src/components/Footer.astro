@@ -1,0 +1,81 @@
+---
+import '../styles/global.css';
+
+const year = new Date().getFullYear();
+---
+
+<footer class='mt-0 text-center text-base dark:text-dark-gray text-gray'>
+  <p>
+    &copy; {year}
+    <a href='/' class='hover:underline'>The A11y Path</a>
+    | <a href='/sitemap.xml' class='hover:underline'>Sitemap</a>
+  </p>
+
+  <p class='pt-1 text-sm mt-2'>
+    Made with <span role='img' aria-label='love'>❤️</span> and accessibility in mind
+    by
+    <a
+      href='https://www.linkedin.com/in/elizabeth-meshioye/'
+      target='_blank'
+      rel='noopener noreferrer'
+      class='text-pink-500 dark:text-[#fbdc13] hover:underline'
+    >
+      Elizabeth
+    </a>
+  </p>
+  <div class='flex justify-center gap-4 mt-3 text-xl'>
+    <a
+      href='https://bsky.app/profile/ilizette.bsky.social'
+      target='_blank'
+      rel='noopener noreferrer'
+      aria-label='Follow me on Bluesky'
+      class='hover:text-blue-500'
+    >
+      <svg
+        xmlns='http://www.w3.org/2000/svg'
+        viewBox='0 0 256 256'
+        class='w-5 h-5 fill-current'
+      >
+        <path
+          d='M128 14.18C88.7-12.8 2.3 55.5 64.3 123.4c-7.8-38.5-21.7-53.5-38.7-53.5-31.3 0-38.7 61.2 34.1 104.1 7.8 4.6 18.3 6.9 29.1 6.9h38.4v60.1c0 6.6 5.3 11.9 11.9 11.9s11.9-5.3 11.9-11.9v-60.1h38.4c10.8 0 21.3-2.3 29.1-6.9 72.8-42.9 65.4-104.1 34.1-104.1-17 0-30.9 15-38.7 53.5 62-67.9-24.4-136.2-63.7-109.2z'
+        ></path>
+      </svg>
+    </a>
+
+    <a
+      href='https://github.com/lezette'
+      target='_blank'
+      rel='noopener noreferrer'
+      aria-label='Find me on GitHub'
+      class='hover:text-gray-700 dark:hover:text-white'
+    >
+      <svg
+        xmlns='http://www.w3.org/2000/svg'
+        class='w-5 h-5 fill-current'
+        viewBox='0 0 24 24'
+      >
+        <path
+          d='M12 .5C5.73.5.5 5.74.5 12c0 5.09 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2.17c-3.2.7-3.87-1.38-3.87-1.38-.52-1.32-1.28-1.67-1.28-1.67-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.72-1.55-2.56-.29-5.26-1.28-5.26-5.71 0-1.26.46-2.29 1.2-3.09-.12-.29-.52-1.47.11-3.06 0 0 .98-.31 3.2 1.18a11.2 11.2 0 012.92-.39c.99 0 2 .13 2.92.39 2.21-1.49 3.2-1.18 3.2-1.18.63 1.59.23 2.77.11 3.06.75.8 1.2 1.83 1.2 3.09 0 4.44-2.71 5.42-5.29 5.7.41.35.77 1.04.77 2.1v3.11c0 .31.2.67.8.56A11.5 11.5 0 0023.5 12C23.5 5.74 18.27.5 12 .5z'
+        ></path>
+      </svg>
+    </a>
+
+    <a
+      href='https://www.linkedin.com/in/elizabeth-meshioye/'
+      target='_blank'
+      rel='noopener noreferrer'
+      aria-label='Follow me on LinkedIn'
+      class='hover:text-blue-700'
+    >
+      <svg
+        xmlns='http://www.w3.org/2000/svg'
+        class='w-5 h-5 fill-current'
+        viewBox='0 0 24 24'
+      >
+        <path
+          d='M4.98 3.5C3.33 3.5 2 4.83 2 6.48s1.33 2.98 2.98 2.98c1.65 0 2.98-1.33 2.98-2.98S6.63 3.5 4.98 3.5zM2.4 21h5.16V9H2.4v12zM9.74 9h4.92v1.71h.07c.69-1.3 2.38-2.66 4.91-2.66 5.26 0 6.23 3.46 6.23 7.96V21h-5.16v-5.5c0-1.31-.02-3-1.83-3s-2.11 1.43-2.11 2.9V21H9.74V9z'
+        ></path>
+      </svg>
+    </a>
+  </div>
+</footer>

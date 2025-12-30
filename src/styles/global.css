@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-black: #252525;
+  --color-white: #faf5f6;
+  --color-gray: #6b6b6b;
+  --color-gold: #fbdc13;
+  --color-dark-gray: #a4a4a4;
+}
+
+html {
+  scroll-padding-block-start: 5.5rem;
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  font-family: "Nunito Sans",
+    serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "wdth"100,
+    "YTLC"500;
+  @apply bg-white dark:bg-black text-black dark:text-white;
+}
+
+a {
+  @apply visited:text-pink-700 text-black/80 visited:dark:text-gold dark:text-white/80 underline;
+}
+
+
+strong {
+  @apply font-bold;
+}
+
+em {
+  @apply italic;
+}
+
+/* .blog {
+  @apply space-y-6 text-xl/8;
+
+  h3 {
+    @apply text-2xl font-semibold;
+  }
+
+  h4 {
+    @apply text-xl font-bold;
+  }
+
+  h5 {
+    @apply text-lg font-bold;
+  }
+
+  ul {
+    @apply list-disc ml-10 space-y-2;
+  }
+
+  ol {
+    @apply list-decimal ml-10 space-y-2;
+  }
+
+  mark {
+    @apply bg-yellow-500 dark:bg-yellow-200 px-1.5 rounded-md text-[0.875em];
+  }
+
+  code,
+  kbd {
+    @apply bg-gray-700 dark:bg-[#424242] text-white px-1.5 py-0.5 rounded-md;
+    font-size: .875em;
+  }
+
+  q {
+    @apply italic font-light px-0.5;
+  }
+
+  blockquote {
+    @apply relative pl-5;
+
+    &::before {
+      content: '';
+      @apply absolute block inset-y-0 left-0 bg-green-500 w-1
+    }
+  }
+
+  .note {
+    @apply dark:bg-[#D7BA7D] dark:text-black bg-gray/50 p-4 rounded-xl;
+
+    &::before {
+      content: "Note: ";
+      @apply font-bold;
+    }
+  }
+
+  .note-no-prefix {
+    @apply dark:bg-[#D7BA7D] dark:text-black bg-gray/50 p-4 rounded-xl;
+  }
+
+  .note a, .note-no-prefix a{
+    @apply text-black;
+  }
+
+  .big-text {
+    @apply text-3xl;
+  }
+
+  a[target="_blank"] {
+
+    @apply text-pink-700 dark:text-gold;
+
+    &::after {
+      content: " (opens in new tab)";
+    }
+  }
+  .new-badge {
+    @apply inline-block text-sm dark:bg-[#4DC900] bg-[#005C25] text-white dark:text-black  px-1.5 py-0.5 rounded-md;
+  }
+
+  hr {
+    @apply dark:text-white/30 text-black/30 my-4;
+  }
+} */

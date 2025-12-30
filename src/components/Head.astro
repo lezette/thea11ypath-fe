@@ -1,0 +1,34 @@
+---
+const { title, description } = Astro.props;
+const _title = title || 'The A11y Path';
+const _description =
+  description ||
+  'A blog about accessibility, web standards, and the path to becoming a Certified Professional in Web Accessibility (CPWA).';
+---
+
+<head>
+  <meta charset='utf-8' />
+  <meta name='viewport' content='width=device-width,initial-scale=1' />
+  <title>{_title}</title>
+  <meta name='description' content={description} />
+  <link rel='canonical' href='https://thea11ypath.com/' />
+  <link rel='sitemap' href='/sitemap-index.xml' />
+
+  <!-- Open Graph -->
+  <meta property='og:title' content={_title} />
+  <meta property='og:type' content='website' />
+  <meta property='og:description' content={_description} />
+  <meta name='author' content='Elizabeth Lola' />
+  <meta property='og:url' content='https://thea11ypath.com/' />
+  <meta property='og:image' content='https://thea11ypath.com/favicon.png' />
+
+  <!-- Twitter -->
+  <meta name='twitter:card' content='summary_large_image' />
+  <meta name='twitter:site' content='@yourhandle' />
+  <meta name='twitter:title' content={_title} />
+  <meta name='twitter:description' content={_description} />
+  <meta name='twitter:image' content='https://thea11ypath.com/favicon.png' />
+
+  <!-- Favicon -->
+  <link rel='icon' type='image/png' href='/favicon.png' />
+</head>

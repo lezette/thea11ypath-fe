@@ -1,0 +1,21 @@
+---
+import BaseLayout from './BaseLayout.astro';
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout title={frontmatter.title} description={frontmatter.description}>
+  <h1>
+    {frontmatter.title}
+    <p>Published on {frontmatter.pubDate.toLocaleDateString()}</p>
+    <slot />
+  </h1>
+  <ul class='flex gap-2 flex-wrap'>
+    {
+      frontmatter.tags?.map((tag: string) => (
+        <li>
+          <a href={`/tags/${tag}`}>{tag}</a>
+        </li>
+      ))
+    }
+  </ul>
+</BaseLayout>

@@ -1,0 +1,8 @@
+---
+import '../styles/global.css';
+const { frontmatter, url } = Astro.props;
+---
+
+<li>
+  <a href={url} class='block'>{frontmatter.title}</a>
+</li>

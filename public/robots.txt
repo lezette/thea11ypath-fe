@@ -1,0 +1,15 @@
+# robots.txt for https://thea11ypath.com/
+
+# Allow all search engines to crawl everything (default behavior)
+User-agent: *
+Allow: /
+
+Disallow: /admin/
+Disallow: /drafts/
+Disallow: /private/
+Disallow: /404.html
+Disallow: /tags/
+Disallow: /*?*
+
+
+Sitemap: https://thea11ysite.netlify.app/sitemap.xml
