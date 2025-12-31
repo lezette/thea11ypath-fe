@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { fetchPosts, fetchTags, fetchCategories } from '../lib/strapi';
+import PostPreview from '../components/PostPreview.astro';
 
 const pageTitle = 'All Blog Posts';
 
@@ -23,7 +24,7 @@ const tags = await fetchTags();
     {
       tags.map((tag) => (
         <li>
-          <a href={`/tags/${tag.slug}`} class="text-sm">
+          <a href={`/tags/${tag.slug}`} class="text-sm underline">
             #{tag.name}
           </a>
         </li>
@@ -32,12 +33,6 @@ const tags = await fetchTags();
   </ul>
   <h1 class="my-4 text-2xl">All Blog Posts</h1>
   <ul class="my-5 mx-4">
-    {
-      posts.map((post) => (
-        <li>
-          <a href={`${post.category.slug}/${post.slug}`}>{post.title}</a>
-        </li>
-      ))
-    }
+    {posts.map((post) => <PostPreview post={post} category={post.category} />)}
   </ul>
 </BaseLayout>

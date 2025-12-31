@@ -5,8 +5,8 @@
   --color-black: #252525;
   --color-white: #faf5f6;
   --color-gray: #6b6b6b;
-  --color-gold: #fbdc13;
   --color-dark-gray: #a4a4a4;
+  --color-gold: #ffe11f;
   --color-pink: #eb4888;
   --color-green: #24d05a;
   --color-indigo: #10a2f5;
@@ -42,7 +42,16 @@ body {
 }
 
 a {
-  @apply visited:decoration-pink-700 text-black/80 visited:dark:decoration-gold dark:text-white/80 underline underline-offset-[0.3ex] decoration-2 focus-visible:outline-offset-2;
+  @apply text-black/80  dark:text-white/80 underline-offset-[0.3ex] decoration-2 hover:underline transition-all duration-200 focus-visible:outline-offset-2;
+  text-decoration-color: var(--link-decoration-color, var(--color-pink));
+  transition: text-decoration-color 0.12s ease;
+  will-change: text-decoration-color;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  a {
+    transition: none;
+  }
 }
 
 
