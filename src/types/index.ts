@@ -25,3 +25,10 @@ export interface Post {
   tags?: Tag[];
   featuredImage?: FeaturedImage | null;
 }
+
+export interface Tag {
+  id: number;
+  name: string;
+  slug: string;
+  description?: string | null;
+}
