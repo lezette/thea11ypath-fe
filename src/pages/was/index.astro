@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { fetchPosts } from '../../lib/strapi';
+import type { Post } from '../../types/';
+const pageTitle = 'All Blog Posts';
+
+const posts: Post[] = await fetchPosts('was-posts');
+console.log(posts);
+---
+
+<BaseLayout title={pageTitle}>
+  <p>This is where I will post about WAS</p>
+  <ul>
+    {
+      posts.map((post) => (
+        <li>
+          <a href={`/was/${post.slug}`}>{post.title}</a>
+        </li>
+      ))
+    }
+  </ul>
+</BaseLayout>
