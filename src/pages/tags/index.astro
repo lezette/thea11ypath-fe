@@ -6,11 +6,14 @@ const tags = await fetchTags();
 ---
 
 <BaseLayout pageTitle={'All Tags | The A11y Path'}>
-  <ul>
+  <h1 class="my-4 text-2xl">All Tags</h1>
+  <ul class="flex flex-wrap gap-x-5 gap-y-3 mb-24 mt-10">
     {
       tags.map((tag) => (
         <li>
-          <a href={`/tags/${tag.slug}`}>{tag.name}</a>
+          <a href={`/tags/${tag.slug}`} class="text-xl border p-3 inline-block">
+            #{tag.name}
+          </a>
         </li>
       ))
     }

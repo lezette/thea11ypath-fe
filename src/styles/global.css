@@ -20,6 +20,11 @@ html {
   scroll-padding-block-start: 5.5rem;
 }
 
+.link-hover-active a:not(:hover):not(:focus) {
+  text-decoration-color: var(--other-links-decoration-color);
+  transition: text-decoration-color 0.12s ease;
+}
+
 @media screen and (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;
@@ -37,7 +42,7 @@ body {
 }
 
 a {
-  @apply visited:decoration-pink-700 text-black/80 visited:dark:decoration-gold dark:text-white/80 underline underline-offset-[0.3ex] decoration-2;
+  @apply visited:decoration-pink-700 text-black/80 visited:dark:decoration-gold dark:text-white/80 underline underline-offset-[0.3ex] decoration-2 focus-visible:outline-offset-2;
 }
 
 
@@ -132,9 +137,3 @@ em {
     @apply dark:text-white/30 text-black/30 my-4;
   }
 } */
-
-
-.link-hover-active a:not(:hover):not(:focus) {
-  text-decoration-color: var(--other-links-decoration-color);
-  transition: text-decoration-color 0.12s ease;
-}

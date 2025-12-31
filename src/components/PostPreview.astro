@@ -1,8 +1,35 @@
 ---
 import '../styles/global.css';
-const { frontmatter, url } = Astro.props;
+import type { Post, Category } from '../types';
+const { post, category } = Astro.props as { post: Post; category: Category };
+import { formatDate } from '../utils';
 ---
 
-<li>
-  <a href={url} class='block'>{frontmatter.title}</a>
+<li class="py-4 px-3 border-b border-pink-500 mb-2">
+  <div>
+    <a
+      href={`/${category.slug}/${post.slug}`}
+      class="underline text-2xl visited:dark:text-[#A3DB3D]! dark:text-white! visited:text-indigo-500! hover:no-underline decoration-3! [word-spacing:0.05rem]"
+      >{post.title}
+    </a>
+    <time
+      datetime="Fri Jun 06 2025 00:00:00 GMT+0000 (Coordinated Universal Time)"
+      class="text-xl italic dark:text-dark-gray text-gray font-medium"
+      >{formatDate(post.publishedDate)}
+    </time>
+  </div>
+  <ul class="flex pt-1">
+    {
+      post.tags?.map((tag) => (
+        <li>
+          <a
+            href={`/tags/${tag.slug}`}
+            class="text-lg font-semibold inline-block mr-2"
+          >
+            #{tag.name}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
 </li>

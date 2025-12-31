@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { fetchCategories } from '../../lib/strapi';
+import PostPreview from '../../components/PostPreview.astro';
+
+export async function getStaticPaths() {
+  const categories = await fetchCategories();
+  return categories.map((category) => ({
+    params: {
+      category: category.slug,
+    },
+    props: {
+      category,
+    },
+  }));
+}
+const { category } = Astro.props;
+const pageTitle = `${category.name} | TheA11yPath`;
+---
+
+<BaseLayout title={pageTitle}>
+  {
+    category.posts.length ? (
+      <h1 class="my-4 text-2xl">{category.name}</h1>
+      <ul>
+        {category.posts.map((post) => (
+          <PostPreview post={post} category={category} />
+        ))}
+      </ul>
+    ) : (
+      <div>
+        <h1 class="my-4 text-2xl">This category is currently between ideas.</h1>
+        <p class="border-l-2 px-2 mx-3">Posts will appear... <span class="italic font-extralight">Eventually.</span></p>
+      </div>
+    )
+  }
+</BaseLayout>

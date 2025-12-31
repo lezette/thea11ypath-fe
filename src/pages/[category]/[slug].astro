@@ -1,14 +1,21 @@
 ---
 import { fetchPosts } from '../../lib/strapi';
-import BlogLayout from '../../layouts/BlogLayout.astro';
+import BlogLayout from '../../layouts/BaseLayout.astro';
 
 export async function getStaticPaths() {
-  const posts = await fetchPosts('was-posts');
+  const posts = await fetchPosts();
+
   return posts.map((post) => ({
-    params: { slug: post.slug },
-    props: { post },
+    params: {
+      category: post.category.slug,
+      slug: post.slug,
+    },
+    props: {
+      post,
+    },
   }));
 }
+
 const { post } = Astro.props;
 ---
 

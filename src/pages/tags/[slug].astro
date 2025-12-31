@@ -1,35 +1,45 @@
 ---
-import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PostPreview from '../../components/PostPreview.astro';
 
+import { fetchPosts, fetchTags } from '../../lib/strapi';
 export async function getStaticPaths() {
-  const allPosts = await getCollection('blog');
-  const uniqueTags = [
-    ...new Set(allPosts.map((post: any) => post.data.tags).flat()),
-  ];
-  return uniqueTags.map((tag) => {
-    const filteredPosts = allPosts.filter((post: any) =>
-      post.data.tags.includes(tag)
-    );
-    return {
-      params: { tag },
-      props: { posts: filteredPosts },
-    };
-  });
+  const tags = await fetchTags();
+
+  return tags.map((tag) => ({
+    params: {
+      slug: tag.slug,
+    },
+    props: {
+      tag,
+    },
+  }));
 }
 
-const { tag } = Astro.params;
-const { posts } = Astro.props;
+const { tag } = Astro.props;
+const allPosts = await fetchPosts();
+
+const tagPosts = allPosts.filter((post) =>
+  post.tags?.some((t) => t.slug === tag.slug)
+);
 ---
 
-<BaseLayout pageTitle={tag}>
-  <p>Posts tagged with {tag}</p>
-  <ul>
-    {
-      posts.map((post: any) => (
-        <PostPreview url={`/blog/${post.url}`} frontmatter={post.data} />
-      ))
-    }
-  </ul>
+<BaseLayout pageTitle={tag.name + ' | The A11y Path'}>
+  
+  {
+    tagPosts.length === 0 ? (
+      <div>
+        <h1 class="my-4 text-2xl">No posts found for <span class="italic dark:text-gold text-pink">#{tag.name}</span>.</h1>
+        <p class="border-l-2 px-2 mx-3">That may change.</p>
+      </div>
+    ) : (
+      <h1 class="my-4">Posts tagged with {tag.name}</h1>
+      <ul>
+        {tagPosts.map((post) => (
+          
+          <PostPreview post={post} category={post.category} />
+        ))}
+      </ul>
+    )
+  }
 </BaseLayout>

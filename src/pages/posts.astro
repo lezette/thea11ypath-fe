@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { fetchPosts, fetchTags, fetchCategories } from '../lib/strapi';
+
+const pageTitle = 'All Blog Posts';
+
+const posts = await fetchPosts();
+const categories = await fetchCategories();
+const tags = await fetchTags();
+---
+
+<BaseLayout title={pageTitle}>
+  <ul class="flex border-y py-2 px-5 items-center flex-wrap gap-y-4 gap-x-8">
+    {
+      categories.map((category) => (
+        <li>
+          <a href={`/${category.slug}`}>{category.name}</a>
+        </li>
+      ))
+    }
+  </ul>
+  <ul class="flex border-b py-2 items-center justify-center flex-wrap gap-4">
+    {
+      tags.map((tag) => (
+        <li>
+          <a href={`/tags/${tag.slug}`} class="text-sm">
+            #{tag.name}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+  <h1 class="my-4 text-2xl">All Blog Posts</h1>
+  <ul class="my-5 mx-4">
+    {
+      posts.map((post) => (
+        <li>
+          <a href={`${post.category.slug}/${post.slug}`}>{post.title}</a>
+        </li>
+      ))
+    }
+  </ul>
+</BaseLayout>
