@@ -7,6 +7,13 @@
   --color-gray: #6b6b6b;
   --color-gold: #fbdc13;
   --color-dark-gray: #a4a4a4;
+  --color-pink: #eb4888;
+  --color-green: #24d05a;
+  --color-indigo: #10a2f5;
+}
+
+:root {
+  --other-links-decoration-color: var(--color-pink);
 }
 
 html {
@@ -30,7 +37,7 @@ body {
 }
 
 a {
-  @apply visited:text-pink-700 text-black/80 visited:dark:text-gold dark:text-white/80 underline;
+  @apply visited:decoration-pink-700 text-black/80 visited:dark:decoration-gold dark:text-white/80 underline underline-offset-[0.3ex] decoration-2;
 }
 
 
@@ -125,3 +132,9 @@ em {
     @apply dark:text-white/30 text-black/30 my-4;
   }
 } */
+
+
+.link-hover-active a:not(:hover):not(:focus) {
+  text-decoration-color: var(--other-links-decoration-color);
+  transition: text-decoration-color 0.12s ease;
+}

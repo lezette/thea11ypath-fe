@@ -1,14 +1,14 @@
 ---
-import Nav from '../components/Nav.astro';
+import Nav from '../components/PrimaryNav.astro';
 import Footer from '../components/Footer.astro';
 import Head from '../components/Head.astro';
 import '../styles/global.css';
 const { title, description } = Astro.props;
 ---
 
-<html lang='en'>
+<html lang="en">
   <Head title={title} description={description} />
-  <body>
+  <body class="max-w-[55rem] mx-auto p-10">
     <Nav />
     <main>
       <slot />
