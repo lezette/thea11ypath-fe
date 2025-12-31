@@ -54,6 +54,10 @@ a {
   }
 }
 
+h1 {
+  @apply text-4xl my-8;
+}
+
 
 strong {
   @apply font-bold;
@@ -63,7 +67,7 @@ em {
   @apply italic;
 }
 
-/* .blog {
+.post {
   @apply space-y-6 text-xl/8;
 
   h3 {
@@ -131,9 +135,6 @@ em {
   }
 
   a[target="_blank"] {
-
-    @apply text-pink-700 dark:text-gold;
-
     &::after {
       content: " (opens in new tab)";
     }
@@ -145,4 +146,8 @@ em {
   hr {
     @apply dark:text-white/30 text-black/30 my-4;
   }
-} */
+
+  figure {
+    @apply my-6 inline-block;
+  }
+}

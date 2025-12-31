@@ -1,21 +1,28 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { fetchTags } from '../../lib/strapi';
+import AllPostsNav from '../../components/AllPostsNav.astro';
 
 const tags = await fetchTags();
 ---
 
-<BaseLayout pageTitle={'All Tags | The A11y Path'}>
-  <h1 class="my-4 text-2xl">All Tags</h1>
-  <ul class="flex flex-wrap gap-x-5 gap-y-3 mb-24 mt-10">
-    {
-      tags.map((tag) => (
-        <li>
-          <a href={`/tags/${tag.slug}`} class="text-xl border p-3 inline-block">
-            #{tag.name}
-          </a>
-        </li>
-      ))
-    }
-  </ul>
+<BaseLayout title={'All Tags | The A11y Path'}>
+  <AllPostsNav />
+  <div class="my-10">
+    <h1>All Tags</h1>
+    <ul class="flex flex-wrap gap-x-5 gap-y-3 mb-24 mt-10">
+      {
+        tags.map((tag) => (
+          <li>
+            <a
+              href={`/tags/${tag.slug}`}
+              class="text-xl border p-3 inline-block"
+            >
+              #{tag.name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
 </BaseLayout>

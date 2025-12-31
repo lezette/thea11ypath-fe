@@ -1,0 +1,22 @@
+---
+import { fetchCategories } from '../lib/strapi';
+const categories = await fetchCategories();
+---
+
+<nav
+  aria-label="All Posts Categories"
+  class="sticky top-17 inset-x-0 w-full dark:bg-black/70 bg-white/70 backdrop-blur-sm"
+>
+  <hr class="dark:text-white/30 text-black/30" aria-hidden="true" />
+  <ul class="flex py-3 px-5 items-center flex-wrap gap-y-4 gap-x-8 mb-3">
+    {
+      categories.map((category) => (
+        <li>
+          <a href={`/${category.slug}`} class="underline">
+            {category.name}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>

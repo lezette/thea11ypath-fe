@@ -1,46 +1,54 @@
 ---
 import type { Post } from '../types';
 import BaseLayout from './BaseLayout.astro';
+import AllPostsNav from '../components/AllPostsNav.astro';
 
 interface Props {
   post: Post;
-  section: string;
+  title: string;
 }
 
-const { post, section } = Astro.props as Props;
+const { post, title } = Astro.props as Props;
 ---
 
-<BaseLayout>
-  <header>
-    <p class="eyebrow">{section}</p>
-    <h1>{post.title}</h1>
-    {post.excerpt && <p>{post.excerpt}</p>}
+<BaseLayout title={title}>
+  <AllPostsNav />
+  <div class="post mb-3">
+    <header>
+      <h1 class="text-3xl text-center my-8">{post.title}</h1>
 
+      {
+        post.featuredImage && (
+          <img
+            src={'http://localhost:1337' + post.featuredImage.url}
+            alt={post.featuredImage.alternativeText ?? post.title}
+          />
+        )
+      }
+      <div class="w-6/12 mx-auto my-8">
+        <hr />
+      </div>
+    </header>
+
+    <section class="prose">
+      <Fragment set:html={post.content} />
+    </section>
+  </div>
+  <div class="mb-20">
     {
-      post.featuredImage && (
-        <img
-          src={post.featuredImage.url}
-          alt={post.featuredImage.alternativeText ?? post.title}
-        />
+      post.tags && post.tags.length > 0 && (
+        <nav aria-label="Post tags">
+          <ul class="flex gap-3">
+            {post.tags.map((tag) => (
+              <li>
+                <a href={`/tags/${tag.slug}`} class="underline">
+                  #{tag.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
       )
     }
-  </header>
-
-  <section class="prose">
-    <Fragment set:html={post.content} />
-  </section>
-
-  {
-    post.tags && post.tags.length > 0 && (
-      <nav aria-label="Post tags">
-        <ul>
-          {post.tags.map((tag) => (
-            <li>
-              <a href={`/tags/${tag.slug}`}>{tag.name}</a>
-            </li>
-          ))}
-        </ul>
-      </nav>
-    )
-  }
+  </div>
 </BaseLayout>

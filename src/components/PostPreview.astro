@@ -18,6 +18,13 @@ import { formatDate } from '../utils';
       >{formatDate(post.publishedDate)}
     </time>
   </div>
+  {
+    post.excerpt ? (
+      <p class="my-2 [word-spacing:0.125rem] text-lg tracking-wider">
+        {post.excerpt}
+      </p>
+    ) : null
+  }
   <ul class="flex pt-1">
     {
       post.tags?.map((tag) => (

@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PostPreview from '../../components/PostPreview.astro';
-
+import AllPostsNav from '../../components/AllPostsNav.astro';
 import { fetchPosts, fetchTags } from '../../lib/strapi';
 export async function getStaticPaths() {
   const tags = await fetchTags();
@@ -24,16 +24,17 @@ const tagPosts = allPosts.filter((post) =>
 );
 ---
 
-<BaseLayout pageTitle={tag.name + ' | The A11y Path'}>
-  
-  {
+<BaseLayout title={tag.name + ' | The A11y Path'}>
+  <AllPostsNav />
+  <div class="my-10">
+    {
     tagPosts.length === 0 ? (
       <div>
-        <h1 class="my-4 text-2xl">No posts found for <span class="italic dark:text-gold text-pink">#{tag.name}</span>.</h1>
+        <h1>No posts found for <span class="italic dark:text-gold text-pink">#{tag.name}</span>.</h1>
         <p class="border-l-2 px-2 mx-3">That may change.</p>
       </div>
     ) : (
-      <h1 class="my-4">Posts tagged with {tag.name}</h1>
+      <h1>Posts tagged with {tag.name}</h1>
       <ul>
         {tagPosts.map((post) => (
           
@@ -42,4 +43,5 @@ const tagPosts = allPosts.filter((post) =>
       </ul>
     )
   }
+  </div>
 </BaseLayout>

@@ -84,4 +84,13 @@ const year = new Date().getFullYear();
   </div>
   <script type="module" src="/src/scripts/link-decoration.js"></script>
   <script type="module" src="/src/scripts/link-hover-highlight.js"></script>
+  <script type="module">
+    document.querySelectorAll('a[target="_blank"]').forEach((link) => {
+      const label = link.getAttribute('aria-label') || link.textContent.trim();
+
+      if (!label.toLowerCase().includes('opens in new tab')) {
+        link.setAttribute('aria-label', `${label} (opens in a new tab)`);
+      }
+    });
+  </script>
 </footer>
