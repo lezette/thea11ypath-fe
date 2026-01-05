@@ -19,3 +19,9 @@ export async function fetchCategories() {
   const { data }: { data: Category[] } = await response.json();
   return data;
 }
+
+export async function fetchHomeContent() {
+  const response = await fetch(`${strapiUrl}/api/home?populate=*`);
+  const { data } = await response.json();
+  return data;
+}

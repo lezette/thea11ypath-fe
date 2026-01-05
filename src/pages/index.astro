@@ -1,7 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { fetchHomeContent } from '../lib/strapi';
+const home = await fetchHomeContent();
 ---
 
 <BaseLayout>
-  <section>This is main</section>
+  <section class="text-xl">
+    <Fragment set:html={home.content} />
+  </section>
 </BaseLayout>
