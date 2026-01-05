@@ -1,6 +1,8 @@
 ---
 import { fetchCategories } from '../lib/strapi';
 const categories = await fetchCategories();
+const currentPath = Astro.url.pathname;
+const isActive = (path: string) => path !== '/' && currentPath.startsWith(path);
 ---
 
 <nav
@@ -12,7 +14,11 @@ const categories = await fetchCategories();
     {
       categories.map((category) => (
         <li>
-          <a href={`/${category.slug}`} class="underline">
+          <a
+            href={`/${category.slug}`}
+            class={`underline ${isActive(`/${category.slug}`) ? 'font-extrabold' : 'font-light'}`}
+            aria-current={isActive(`/${category.slug}`) ? 'page' : undefined}
+          >
             {category.name}
           </a>
         </li>
