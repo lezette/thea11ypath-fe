@@ -141,11 +141,14 @@ p {
     @apply text-3xl;
   }
 
-  a[target="_blank"] {
+  a[data-external] {
+    @apply after:inline-block after:[inline-size:0.85em] after:[block-size:0.85em] after:ms-[0.25em] after:bg-contain;
     &::after {
-      content: " (opens in new tab)";
+      background: url("/public/open-in-new-window.svg") no-repeat center;
     }
-  }
+}
+
+
   .new-badge {
     @apply inline-block text-sm dark:bg-[#4DC900] bg-[#005C25] text-white dark:text-black  px-1.5 py-0.5 rounded-md;
   }
