@@ -70,7 +70,7 @@ em {
 p {
   @apply my-6 text-xl/8;
 }
-.big-paragraph {
+.lead-paragraph {
   @apply my-10 text-2xl/9;
 }
 
