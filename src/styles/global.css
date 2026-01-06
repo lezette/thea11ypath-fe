@@ -78,15 +78,15 @@ p {
   @apply space-y-6 text-xl/8;
 
   h3 {
-    @apply text-2xl font-semibold;
+    @apply text-2xl font-semibold my-5;
   }
 
   h4 {
-    @apply text-xl font-bold;
+    @apply text-xl font-bold my-5;
   }
 
   h5 {
-    @apply text-lg font-bold;
+    @apply text-lg font-bold my-4;
   }
 
   ul {
@@ -95,6 +95,10 @@ p {
 
   ol {
     @apply list-decimal ml-10 space-y-2;
+  }
+
+  a {
+    @apply text-pink-800 dark:text-gold underline;
   }
 
   mark {
@@ -121,7 +125,7 @@ p {
   }
 
   .note {
-    @apply dark:bg-[#D7BA7D] dark:text-black bg-gray/50 p-4 rounded-xl;
+    @apply dark:bg-[#2b423d] bg-[#282828] text-white p-4 rounded-xl;
 
     &::before {
       content: "Note: ";
@@ -130,7 +134,7 @@ p {
   }
 
   .note-no-prefix {
-    @apply dark:bg-[#D7BA7D] dark:text-black bg-gray/50 p-4 rounded-xl;
+    @apply dark:bg-[#2b423d] bg-[#282828] text-white p-4 rounded-xl;
   }
 
   .note a, .note-no-prefix a{
@@ -146,8 +150,7 @@ p {
     &::after {
       background: url("/public/open-in-new-window.svg") no-repeat center;
     }
-}
-
+  }
 
   .new-badge {
     @apply inline-block text-sm dark:bg-[#4DC900] bg-[#005C25] text-white dark:text-black  px-1.5 py-0.5 rounded-md;

@@ -9,7 +9,7 @@ import { formatDate } from '../utils';
   <div>
     <a
       href={`/${category.slug}/${post.slug}`}
-      class="underline text-2xl visited:dark:text-[#A3DB3D]! dark:text-white! visited:text-indigo-500! hover:no-underline! decoration-3! [word-spacing:0.05rem]"
+      class="underline text-2xl visited:dark:text-[#A3DB3D]! dark:text-white! visited:text-[#5653f0]! hover:no-underline! decoration-3! [word-spacing:0.05rem]"
       >{post.title}
     </a>
     <time
@@ -20,7 +20,7 @@ import { formatDate } from '../utils';
   </div>
   {
     post.excerpt ? (
-      <p class="my-2 [word-spacing:0.125rem] text-lg tracking-wider">
+      <p class="my-2! [word-spacing:0.125rem] text-lg tracking-wider">
         {post.excerpt}
       </p>
     ) : null
